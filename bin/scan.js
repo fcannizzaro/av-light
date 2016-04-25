@@ -1,40 +1,37 @@
-var dgram = require('dgram');
+var dgram = require('dgram'),
+    utils = require('./utils');
 
 module.exports = function(sid, base, onEnd) {
 
     var scan = true,
-
-        ipBase = base.substr(0, base.lastIndexOf(".")) + ".",
+        i = 0,
+        info = utils.getInfo(base),
         buffer = new Buffer(JSON.stringify({
             cmd: 'status',
             uid: '0',
             sid: sid
         }));
 
-    function recall(i) {
+    var fn = function(i) {
 
         if (!scan)
             return;
 
-        var ip = ipBase + (100 + i);
+        var ip = info.ipBase + (info.startPort + i);
 
         var client = dgram.createSocket('udp4');
 
         client.on('message', function(data) {
-            if (scan)
-                onEnd(sid, ip);
+            onEnd(sid, ip);
             scan = false;
         });
 
-        client.send(buffer, 0, buffer.length, 14580, ip, function(err, bytes) {
-            setTimeout(function() {
-                client.close();
-                recall(++i);
-            }, 250);
-        });
+        client.send(buffer, 0, buffer.length, 14580, ip, function(err, bytes) {});
 
     }
 
-    recall(0);
+    while (scan && i < 200) {
+        fn(i++);
+    }
 
 }

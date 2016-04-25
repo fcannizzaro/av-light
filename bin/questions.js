@@ -1,5 +1,6 @@
 var inquirer = require('inquirer'),
     scan = require("./scan"),
+    find = require("./find"),
     fs = require("fs"),
     clear = require("cli-clear"),
     filename = require("os").homedir() + "/.light_bulb";
@@ -62,21 +63,52 @@ module.exports = function(onEnd) {
         });
     }
 
-    var add = function() {
-        inquirer.prompt([{
-            type: 'input',
-            name: 'name',
-            message: 'Name ?'
-        }, {
-            type: 'input',
-            name: 'sid',
-            message: 'Sid (help)?'
-        }]).then(function(answers) {
+    var onAdd = function(devices) {
+
+        clear();
+        var array = [];
+
+        for (var key in devices)
+            array.push(key + "\t" + devices[key].name);
+
+        console.log("\n > finding light bulbs...\n");
+
+        inquirer.prompt({
+            type: 'list',
+            name: 'lamp',
+            message: 'Add Lamp',
+            choices: array
+        }).then(function(results) {
+
             if (!config.lamps) config.lamps = {};
-            if (answers.name.trim())
-                config.lamps[answers.name] = answers.sid;
-            save();
-            menu();
+
+            inquirer.prompt([{
+                type: 'input',
+                name: 'name',
+                message: 'Name ?'
+            }]).then(function(answers) {
+
+                var ip = results.lamp.split("\t")[0];
+
+                if (answers.name.trim())
+                    config.lamps[answers.name] = devices[ip].sid;
+
+                save();
+                menu();
+
+            });
+
+        });
+
+    }
+
+    var add = function() {
+
+        var devices = {};
+
+        new find(config.ip).on("device", function(device) {
+            devices[device.ip] = device;
+            onAdd(devices);
         });
     }
 
