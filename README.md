@@ -10,14 +10,14 @@ Easy turn on/off, change color, brightness your lamps using a simple CLI utility
 
 ## Install
 ```sh
-	> npm install av-light -g
+	npm install av-light -g
 ```
 
 ## First Launch
 
 ```sh	
-	> avlight
-	> set base ip
+	avlight
+	set base ip
 ```
 
 ## Configuration
