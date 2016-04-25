@@ -6,7 +6,7 @@ Avantek light bulb CLI
 [![npm version](https://badge.fury.io/js/av-light.svg)](https://badge.fury.io/js/av-light)
 
 ## Description
-Easy turn on/off, change color, brightness your lamps using a simple CLI utility
+Easy turn on/off, change color, change brightness to your [Avantek light bulbs](http://www.amazon.com/AVANTEK-Smart-Emergency-Multicolored-Dimmable/dp/B017QYHG7C) using a simple CLI utility
 
 ![screen](https://raw.githubusercontent.com/fcannizzaro/av-light/master/src/screen.png)
 
