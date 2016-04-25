@@ -11,10 +11,14 @@ Easy turn on/off, change color, brightness your lamps using a simple CLI utility
 ![screen](https://raw.githubusercontent.com/fcannizzaro/av-light/master/src/screen.png)
 
 ## Install
-```npm install av-light -g```
+```
+npm install av-light -g
+```
 
 ## First Launch
-```avlight```
+```
+avlight
+```
 
 and setup base ip (for autosearch lamp through its **sid**)
 
