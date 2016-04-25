@@ -17,8 +17,8 @@ Easy turn on/off, change color, brightness your lamps using a simple CLI utility
 
 ```sh	
 	avlight
-	set base ip
 ```
+and setup base ip (for autosearch lamp through its **sid**)
 
 ## Configuration
 Config file is store at ```$homedir/.light_bulb```
