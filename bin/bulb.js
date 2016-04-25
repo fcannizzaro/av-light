@@ -42,7 +42,7 @@ module.exports = function(sid, ip) {
         });
     }
 
-    this.brighteness = function(lum) {
+    this.brightness = function(lum) {
 
         if (lum > 255)
             luminosity = 255;

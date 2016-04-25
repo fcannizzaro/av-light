@@ -22,7 +22,8 @@ module.exports = function(sid, base, onEnd) {
         var client = dgram.createSocket('udp4');
 
         client.on('message', function(data) {
-            onEnd(sid, ip);
+            if (scan)
+                onEnd(sid, ip);
             scan = false;
         });
 
