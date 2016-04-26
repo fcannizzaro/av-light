@@ -6,7 +6,7 @@ module.exports = function(base) {
 
     var ev = new emitter(),
         devices = {},
-        buffer = new utils.toBuffer({
+        buffer = utils.toBuffer({
             cmd: 'devfind'
         }),
         info = utils.getInfo(base);
