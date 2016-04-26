@@ -6,9 +6,9 @@ module.exports = function(base) {
 
     var ev = new emitter(),
         devices = {},
-        buffer = new Buffer(JSON.stringify({
+        buffer = new utils.toBuffer({
             cmd: 'devfind'
-        })),
+        }),
         info = utils.getInfo(base);
 
     var fn = function(i) {

@@ -1,6 +1,6 @@
 {
     "name": "av-light",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Avantek light bulb CLI",
     "main": "bin/index.js",
     "dependencies": {

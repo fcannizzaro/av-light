@@ -6,11 +6,11 @@ module.exports = function(sid, base, onEnd) {
     var scan = true,
         i = 0,
         info = utils.getInfo(base),
-        buffer = new Buffer(JSON.stringify({
+        buffer = utils.toBuffer({
             cmd: 'status',
             uid: '0',
             sid: sid
-        }));
+        });
 
     var fn = function(i) {
 
@@ -31,8 +31,7 @@ module.exports = function(sid, base, onEnd) {
 
     }
 
-    while (scan && i < 200) {
+    while (scan && i < 200)
         fn(i++);
-    }
 
 }
