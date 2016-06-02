@@ -1,6 +1,15 @@
 # av-light
 Avantek light bulb CLI
 
+<!--
+ GIT-CARD
+ cover: https://dl.dropboxusercontent.com/u/73317452/dev/av_light.png
+ cover_height: 200
+ color: #00d01e
+ counter_forks: false
+ counter_issues: false
+-->
+
 ![logo](https://raw.githubusercontent.com/fcannizzaro/av-light/master/src/icon.png)
 
 [![npm version](https://badge.fury.io/js/av-light.svg)](https://badge.fury.io/js/av-light)
