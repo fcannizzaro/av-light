@@ -3,9 +3,8 @@ Avantek light bulb CLI
 
 <!--
  GIT-CARD
- cover: https://dl.dropboxusercontent.com/u/73317452/dev/av_light.png
- cover_height: 200
- color: #00d01e
+ cover_height: 8
+ color: #09be23
  counter_forks: false
  counter_issues: false
 -->
